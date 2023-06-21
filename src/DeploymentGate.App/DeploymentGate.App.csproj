@@ -1,26 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <AzureFunctionsVersion>V4</AzureFunctionsVersion>
-        <OutputType>Exe</OutputType>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.8.0" />
-        <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.7.0" />
-        <PackageReference Include="Octokit.Webhooks.AzureFunctions" Version="2.0.1" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Update="host.json">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="local.settings.json">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-        </None>
-    </ItemGroup>
-    <ItemGroup>
-        <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
-    </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AzureFunctionsVersion>V4</AzureFunctionsVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CA1848;IDE0021;IDE0053;VSTHRD111</NoWarn>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>AzureFunctions</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.10.0" OutputItemType="Analyzer" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.14.1" />
+    <PackageReference Include="Octokit.Webhooks.AzureFunctions" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+<!--  <ItemGroup>-->
+<!--    <ProjectReference Include="..\..\src\Octokit.Webhooks.AzureFunctions\Octokit.Webhooks.AzureFunctions.csproj" />-->
+<!--  </ItemGroup>-->
+
 </Project>

@@ -1,16 +1,16 @@
-using DeploymentGate.App;
+#pragma warning disable CA1852
+using AzureFunctions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Octokit.Webhooks;
 using Octokit.Webhooks.AzureFunctions;
 
-var host = new HostBuilder()
+new HostBuilder()
     .ConfigureServices(collection =>
     {
         collection.AddSingleton<WebhookEventProcessor, GitHubWebhookEventProcessor>();
     })
     .ConfigureGitHubWebhooks()
     .ConfigureFunctionsWorkerDefaults()
-    .Build();
-
-host.Run();
+    .Build()
+    .Run();
