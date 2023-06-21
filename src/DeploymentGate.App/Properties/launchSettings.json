@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "DeploymentGate.App": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7272",
+      "launchBrowser": false
+    }
+  }
+}
