@@ -1,18 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <AzureFunctionsVersion>V4</AzureFunctionsVersion>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);CA1848;IDE0021;IDE0053;VSTHRD111</NoWarn>
     <OutputType>Exe</OutputType>
     <IsPackable>false</IsPackable>
-    <RootNamespace>AzureFunctions</RootNamespace>
+    <RootNamespace>DeploymentGate</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="GitHubJwt" Version="0.0.6" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.10.0" OutputItemType="Analyzer" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.14.1" />
+    <PackageReference Include="Octokit" Version="6.0.0" />
     <PackageReference Include="Octokit.Webhooks.AzureFunctions" Version="2.0.1" />
   </ItemGroup>
 
@@ -25,9 +26,5 @@
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
   </ItemGroup>
-
-<!--  <ItemGroup>-->
-<!--    <ProjectReference Include="..\..\src\Octokit.Webhooks.AzureFunctions\Octokit.Webhooks.AzureFunctions.csproj" />-->
-<!--  </ItemGroup>-->
 
 </Project>
